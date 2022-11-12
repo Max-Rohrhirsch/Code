@@ -13,10 +13,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <link rel="shortcut icon" href="./Bilder/favicon.ico"/>
         <title>Contact</title>
 
         <style media="screen">
-            a {
+            #links a {
                 color: #f80;
                 font-size: 25px;
                 margin-left: 300px;
@@ -28,11 +29,11 @@
                 user-select: all;
             }
 
-            a:hover {
+            #links a:hover {
                 font-size: 30px;
             }
 
-            a:hover span{
+            #links a:hover span{
                 display: none;
 
             }
@@ -48,11 +49,21 @@
             #links {
                 margin-bottom: 300px;
             }
+
         </style>
     </head>
     <body>
         <h1 id="welText">Links & Email</h1>
         <h2>Kontakt</h2>
+        <div class="dropdown">
+            <div class="dropbtn"><i class="fa fa-bars" style="font-size: 25px; color: white"></i></div>
+            <div class="dropdown-content">
+                <a href="http://max-rohrhirsch.github.io">Home</a>
+                <a href="http://max-rohrhirsch.github.io/contact">Contact</a>
+                <a href="http://max-rohrhirsch.github.io/about">About</a>
+                <a href="http://max-rohrhirsch.github.io/projects">Projects</a>
+            </div>
+        </div>
         <p contenteditable="true">
             Hi, falls ihr mich auf irgendwelchem Weg kontaktieren wollt,
             könnt ihr das gerne machen.

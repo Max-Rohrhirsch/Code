@@ -46,34 +46,44 @@ p {
 }
 
 /* Navigationbar */
-.nav {
-    position: sticky;
-    width: 305px;
-    top: 30px;
-    left: 50vw;
-    border-radius: 20px;
+.dropbtn {
     background-color: #222;
-    transform: translate(-50%, 0);
-    text-align: center;
-}
-
-.nav a {
-    display: inline-block;
-    padding: 7px 15px;
-    transition: all 500ms;
-
-}
-
-.nav a:hover {
-    font-size: 20px;
-    padding: 0px;
+    color: white;
+    padding: 16px;
     cursor: pointer;
 }
 
-/* ----------------------------------------------- */
+.dropdown {
+    position: fixed;
+    display: inline-block;
+    top: 40px;
+    left: 40px;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222;
+}
 
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
 
+.dropdown-content a:hover {background-color: #333}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #222;
+}
+
+/* --------------------- */
 
 
 
