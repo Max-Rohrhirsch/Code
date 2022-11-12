@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Das ist mein Portfolio">
+        <meta name="keywords" content="Max Rohrhirsch Portfolio coding programmieren">
+        <meta name="author" content="Max Rohrhirsch">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+        <title>Max Portfolio</title>
+
+        <style media="screen">
+            #mainIMG {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                user-select: none;
+            }
+
+            #name {
+                position: absolute;
+                font-size: 90px;
+                color: white;
+                line-height: 99vh;
+                margin: auto;
+                margin-left: 200px;
+                text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+                    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+                user-select: none;
+            }
+
+            .nav {
+                position: fixed;
+                top: auto;
+                bottom: 30px;
+                right: 50vw;
+                border-radius: 20px;
+                background-color: #222;
+                transform: translate(-50%, 0);
+            }
+        </style>
+    </head>
+    <body>
+        <img src="./Bilder/Ich bwl.jpg" id="mainIMG"/>
+        <h1 id="name">Max Rohrhirsch</h1>
+
+        <div class="nav">
+            <a>About</a>
+            <a>Contact</a>
+            <a>Projects</a>
+        </div>
+    </body>
+</html>

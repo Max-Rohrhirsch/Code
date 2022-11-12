@@ -1,0 +1,94 @@
+/* Allgemein */
+body {
+    padding: 0;
+    background-color: #000;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+}
+
+::selection {
+    background: orange;
+}
+
+/* Text */
+#welText {
+    margin: 0;
+    margin-left: 300px;
+    margin-top: 50vh;
+    margin-bottom: 40vh;
+    transform: translate(0, -50%);
+    font-size: 130px;
+    color: white;
+    user-select: none;
+}
+
+h2 {
+    margin-left: 140px;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 25px;
+    color: white;
+    margin-left: 40px;
+}
+
+p {
+    margin-left: 140px;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    color: white;
+    max-width: 40vw;
+
+}
+
+/* Navigationbar */
+.nav {
+    position: sticky;
+    width: 305px;
+    top: 30px;
+    left: 50vw;
+    border-radius: 20px;
+    background-color: #222;
+    transform: translate(-50%, 0);
+    text-align: center;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 7px 15px;
+    transition: all 500ms;
+
+}
+
+.nav a:hover {
+    font-size: 20px;
+    padding: 0px;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */

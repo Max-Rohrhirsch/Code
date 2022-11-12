@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Das ist mein Portfolio">
+        <meta name="keywords" content="Max Rohrhirsch Portfolio coding programmieren">
+        <meta name="author" content="Max Rohrhirsch">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+        <title>About</title>
+
+        <style media="screen">
+            .level {
+                margin: 5px;
+                margin-left: 40px;
+                width: 300px;
+                height: 5px;
+                border-radius: 2.5px;
+            }
+
+            #deutsch  {background: linear-gradient(to right, #0f0 300px, #555 0px)}
+            #englisch {background: linear-gradient(to right, #6f0 280px, #555 0px)}
+            #polnisch {background: linear-gradient(to right, #930 190px, #555 0px)}
+            #spanisch {background: linear-gradient(to right, #900 100px, #555 0px)}
+
+            #python     {background: linear-gradient(to right, #0f0 300px, #555 0px)}
+            #html       {background: linear-gradient(to right, #0f0 300px, #555 0px)}
+            #css        {background: linear-gradient(to right, #0f0 300px, #555 0px)}
+            #javascript {background: linear-gradient(to right, #df0 240px, #555 0px)}
+            #java       {background: linear-gradient(to right, #df0 240px, #555 0px)}
+            #sql        {background: linear-gradient(to right, #f90 220px, #555 0px)}
+            #cpp        {background: linear-gradient(to right, #900 210px, #555 0px)}
+
+            #rest {
+                margin-left: 100px;
+                margin-top: 200px;
+                margin-bottom: 180px;
+                display: block;
+            }
+
+            #imgL {
+                width: 40vw;
+                height: 50vh;
+                border: 1px solid red;
+                margin-left: 140px;
+                display: inline-block;
+            }
+
+            #imgR {
+                position: absolut;
+                display: block;
+                width: 40vw;
+                height: 50vh;
+                border: 1px solid red;
+                right: 140px;
+                margin-left: 850px;
+                margin-top: -920px;
+            }
+
+            .right {
+                display: block;
+                top: 0px;
+                margin-left: calc(40vw + 140px);
+                margin-top: -550px;
+                margin-bottom: 100px;
+            }
+
+            #skills {
+                display: inline-block;
+                margin-bottom: 200px;
+            }
+
+            #welText {
+                margin-left: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="welText">Ich bin IT Security Engineer</h1>
+
+        <div class="nav">
+            <a>About</a>
+            <a>Contact</a>
+            <a>Projects</a>
+        </div>
+
+        <h2>About</h2>
+        <p contenteditable="true">
+            Ich heiße Max Rohrhirsch bin 18 Jahre alt und wohne im Schwarzwald.
+            Wie man unschwer erkennen kann, interesiere ich mich sehr für Informatik und bau im allgemeinen.
+            Aktuell bin ich zwar noch Schüler, wurde aber schon auf ein Duales Studium
+            in angewanter Informationstechnick angenommen. Dazu verbringe ich meine Freizeit viel mit Pfadfindern und wandern.
+        </p>
+        <div id="skills">
+            <img id="imgL">
+            <div class="right">
+                <h2 style="margin-left: 40px">Sprachen</h2>
+                <h3>Deutsch</h3>
+                <div id="deutsch" class="level"></div>
+                <h3>Englisch</h3>
+                <div id="englisch" class="level"></div>
+                <h3>Polnisch</h3>
+                <div id="polnisch" class="level"></div>
+                <h3>Spanisch</h3>
+                <div id="spanisch" class="level"></div>
+            </div>
+        <div>
+        <div id="rest">
+            <h2 style="margin-left: 40px"> Betriebssysteme: </h2>
+            <h3>Windows, Kali Linux, Arch Linux, Linux Mint</h3>
+
+            <h2 style="margin-left: 40px"> Anwendungsprogramme: </h2>
+            <h3>Atom, VS Code, VIM, MS-Office, Github, nmap</h3>
+
+            <h2 style="margin-left: 40px">Programmiersprachen</h2>
+            <h3>Python</h3>
+            <div id="python" class="level"></div>
+            <h3>HTML</h3>
+            <div id="html" class="level"></div>
+            <h3>CSS</h3>
+            <div id="css" class="level"></div>
+            <h3>Javascript</h3>
+            <div id="javascript" class="level"></div>
+            <h3>Java</h3>
+            <div id="java" class="level"></div>
+            <h3>SQL</h3>
+            <div id="sql" class="level"></div>
+            <h3>C/C++</h3>
+            <div id="cpp" class="level"></div>
+
+            <img id="imgR">
+        </div>
+        <span style="height: 200px; margin: 100px; display: block;"></span>
+    </body>
+</html>
