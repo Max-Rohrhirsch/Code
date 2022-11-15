@@ -18,26 +18,38 @@
 
         <style media="screen">
             #mainIMG {
-                width: 100vw;
-                height: 100vh;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
                 position: absolute;
+                user-select: none;
                 top: 0;
                 left: 0;
-                user-select: none;
             }
 
             #name {
                 position: absolute;
                 font-size: 90px;
                 color: white;
-                line-height: 99vh;
-                margin: auto;
+                top: 45vh;
                 margin-left: 200px;
+                transform: translate(0, -50%);
                 text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
                     1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
                 user-select: none;
             }
+            /* ---- Responsiveness ---- */
+
+            body {
+                overflow: hidden;
+            }
+
+            @media screen and (max-width: 800px) {
+              #name {
+                  display: none;
+              }
+            }
+
         </style>
     </head>
     <body>

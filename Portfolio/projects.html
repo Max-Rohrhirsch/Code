@@ -15,30 +15,29 @@
 
         <link rel="shortcut icon" href="./Bilder/favicon.ico"/>
         <title>Pojekte</title>
-    
+
         <style media="screen">
             body {
-                overflow: hidden;
+                background-color: #111;
             }
 
             #grid {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 70px;
-                margin: 100px;
+                margin: 150px;
 
             }
 
             .pro {
-                width: 350px;
-                height: 200px;
-                border: 1px solid red;
+                width: 450px;
+                height: 300px;
             }
 
             h4 {
                 opacity: 0;
                 position: relative;
-                top: 30%;
+                top: -200px;
                 text-align: center;
                 color: white;
                 text-decoration: none;
@@ -51,47 +50,72 @@
             a:hover img {opacity: 0.3}
             a:hover h4 {opacity: 1}
 
+            a img {
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Responsive */
+
+            @media screen and (max-width: 1700px) {
+                #grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .pro {
+                    width: 550px;
+                    height: 350px;
+                }
+            }
+
+            @media screen and (max-width: 1350px) {
+                #grid {
+                    grid-template-columns: repeat(1, 1fr);
+                    margin: 0;
+
+                }
+                .pro {
+                    width: 90vw;
+                    height: 250px;
+                    margin: auto;
+                }
+                h4 {
+                    opacity: 0;
+                    position: relative;
+                    top: -160px;
+                    text-align: center;
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+
         </style>
     </head>
     <body>
         <div id="grid">
-            <a href="#" class="pro">
+            <a href="http://max-rohrhirsch.github.io/projects/Socket" class="pro">
+                <img src="/home/max/Schreibtisch/Code/Portfolio/Bilder/Projekte/Socket.png">
                 <h4>Socket Server</h4>
             </a>
-            <a class="pro">
-
+            <a href="http://max-rohrhirsch.github.io/projects/Webcrawler" class="pro">
+                <img src="/home/max/Schreibtisch/Code/Portfolio/Bilder/Projekte/Crawler.png">
+                <h4>Webcrawler</h4>
             </a>
-            <a class="pro">
-
+            <a href="http://max-rohrhirsch.github.io/projects/Pfadfinder" class="pro">
+                <img src="/home/max/Schreibtisch/Code/Portfolio/Bilder/Sommerlager 3.jpg">
+                <h4>Pfadfinder Webseite</h4>
             </a>
-            <a class="pro">
-
+            <a href="http://max-rohrhirsch.github.io/projects/Transcoder" class="pro">
+                <img src="/home/max/Schreibtisch/Code/Portfolio/Bilder/Projekte/transcoder.png">
+                <h4>Transcoder</h4>
             </a>
-            <a class="pro">
-
+            <a href="http://max-rohrhirsch.github.io/projects/Hovercraft" class="pro">
+                <img src="/home/max/Schreibtisch/Code/Portfolio/Bilder/Hovercraft 2.jpg">
+                <h4>Hovercraft</h4>
             </a>
-            <a class="pro">
-
+            <a href="http://max-rohrhirsch.github.io/projects/Digitaluhr" class="pro">
+                <img src="/home/max/Schreibtisch/Code/Portfolio/Bilder/Sommerlager 3.jpg">
+                <h4>Digitaluhr</h4>
             </a>
-            <a class="pro">
-
-            </a>
-            <a class="pro">
-
-            </a>
-            <a class="pro">
-
-            </a>
-            <a class="pro">
-
-            </a>
-            <a class="pro">
-
-            </a>
-            <a class="pro">
-
-            </a>
-
             <div class="dropdown">
                 <div class="dropbtn"><i class="fa fa-bars" style="font-size: 25px; color: white"></i></div>
                 <div class="dropdown-content">

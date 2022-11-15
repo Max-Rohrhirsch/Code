@@ -3,7 +3,8 @@ body {
     padding: 0;
     background-color: #000;
     color: white;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono';
+    overflow-x: hidden;
 }
 
 ::selection {
@@ -13,11 +14,11 @@ body {
 /* Text */
 #welText {
     margin: 0;
-    margin-left: 300px;
+    margin-left: 15vw;
     margin-top: 50vh;
     margin-bottom: 40vh;
     transform: translate(0, -50%);
-    font-size: 130px;
+    font-size: 190px;
     color: white;
     user-select: none;
 }
@@ -42,7 +43,6 @@ p {
     margin-bottom: 100px;
     color: white;
     max-width: 40vw;
-
 }
 
 /* Navigationbar */
@@ -75,23 +75,71 @@ p {
 
 .dropdown-content a:hover {background-color: #333}
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover  .dropdown-content{
     display: block;
 }
-
-.dropdown:hover .dropbtn {
-    background-color: #222;
+.dropdown:hover {
+    width: 109px;
 }
 
+
 /* --------------------- */
+#links a {
+    font-size: 30px;
+    width: 260px;
+}
 
+.but1,  #runaway-btn{
+    background-color: #222;
+    color: #0f0;
+    border: 2px solid #0f0;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 500ms;
+    font-family: 'Roboto Mono', monospace;
+    margin-left: 87px;
+    margin-top: 270px;
+    position: absolute;
+}
 
+@media screen and (max-width: 1200px) {
+    #welText {
+        font-size: 20vw;
+        margin-bottom: 40vw;
+    }
 
+    p {
+        font-size: 5vw;
+        max-width: 70vw;
+        margin-left: 15vw;
+    }
 
+    /* Navigationbar */
+    .dropdown:hover {
+        width: 128px;
+    }
 
+    .dropdown-content a {
+        padding: 12px 16px;
+        font-size: 20px;
+    }
 
+    #links a {
+        font-size: 50px;
+        width: 400px;
+    }
+    /* Projects */
 
+    #runaway-btn {
+        display: none;
+    }
 
+    h2 {
+        font-size: 8vw;
+        margin-left: 15vw;
+    }
+}
 
 
 

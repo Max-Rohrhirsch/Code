@@ -18,11 +18,11 @@
 
         <style media="screen">
             .level {
-                margin: 5px;
-                margin-left: 40px;
                 width: 300px;
                 height: 5px;
                 border-radius: 2.5px;
+                margin: 5px;
+                margin-left: 40px;
             }
 
             #deutsch  {background: linear-gradient(to right, #0f0 300px, #555 0px)}
@@ -41,7 +41,7 @@
             #rest {
                 margin-left: 100px;
                 margin-top: 200px;
-                margin-bottom: 180px;
+                margin-bottom: 0;
                 display: block;
             }
 
@@ -49,7 +49,7 @@
                 width: 40vw;
                 height: 50vh;
                 border: 1px solid red;
-                margin-left: 140px;
+                margin-left: 15vw;
                 display: inline-block;
             }
 
@@ -78,8 +78,62 @@
             }
 
             #welText {
-                margin-left: 200px;
+                margin-left: 15vw;
+                margin-bottom: -100px;
             }
+
+            @media screen and (max-width: 1200px) {
+                #welText {
+                    font-size: 15vw;
+                    max-width: 60vw;
+                    margin-top: 45vh;
+                    margin-bottom: 20vh;
+                }
+
+                p {
+                    font-size: 5vw;
+                    max-width: 70vw;
+                }
+                .right {
+                    margin-left: 15vw;
+                    margin-top: 70px;
+                }
+
+                .right h2, .right h3 {
+                    margin-left: 0;
+                }
+
+                #imgL {
+                    width: 70vw;
+                }
+
+                #rest {
+                    margin-left: 15vw;
+                    margin-top: 100px;
+                }
+
+                #imgR {
+                    position:relative;
+                    display: block;
+                    margin-left: 31vw;
+                    width: 70vw;
+                    margin-top: 70px;
+                }
+                #rest h2 {
+                    font-size: 25px;
+                    margin-left: 0px;
+                    margin-top: 40px;
+                }
+                #rest h3 {
+                    font-size: 20px;
+                    margin-left: 0px;
+                    width: 75vw;
+                }
+                .level {
+                    margin-left: 0;
+                }
+            }
+
         </style>
     </head>
     <body>
@@ -96,7 +150,7 @@
         </div>
 
         <h2>About</h2>
-        <p contenteditable="true">
+        <p>
             Ich heiße Max Rohrhirsch bin 18 Jahre alt und wohne im Schwarzwald.
             Wie man unschwer erkennen kann, interesiere ich mich sehr für Informatik und bau im allgemeinen.
             Aktuell bin ich zwar noch Schüler, wurde aber schon auf ein Duales Studium
@@ -105,7 +159,7 @@
         <div id="skills">
             <img id="imgL">
             <div class="right">
-                <h2 style="margin-left: 40px">Sprachen</h2>
+                <h2>Sprachen</h2>
                 <h3>Deutsch</h3>
                 <div id="deutsch" class="level"></div>
                 <h3>Englisch</h3>
@@ -117,13 +171,13 @@
             </div>
         <div>
         <div id="rest">
-            <h2 style="margin-left: 40px"> Betriebssysteme: </h2>
+            <h2> Betriebssysteme: </h2>
             <h3>Windows, Kali Linux, Arch Linux, Linux Mint</h3>
 
-            <h2 style="margin-left: 40px"> Anwendungsprogramme: </h2>
+            <h2> Anwendungsprogramme: </h2>
             <h3>Atom, VS Code, VIM, MS-Office, Github, nmap</h3>
 
-            <h2 style="margin-left: 40px">Programmiersprachen</h2>
+            <h2>Programmiersprachen</h2>
             <h3>Python</h3>
             <div id="python" class="level"></div>
             <h3>HTML</h3>
@@ -141,6 +195,5 @@
 
             <img id="imgR">
         </div>
-        <span style="height: 200px; margin: 100px; display: block;"></span>
     </body>
 </html>
