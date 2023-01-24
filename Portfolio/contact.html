@@ -19,7 +19,6 @@
         <style media="screen">
             #links a {
                 color: #f80;
-                /* margin-left: 15vw; */
                 margin-bottom: 5px;
                 display: block;
                 text-decoration: none;
@@ -28,7 +27,8 @@
             }
 
             #links a:hover {
-                font-size: 40px;
+                font-size: 35px;
+                width: auto;
             }
 
             #links a:hover span{
@@ -48,24 +48,22 @@
                 margin-bottom: 200px;
             }
 
+
             /* ---- Responsiveness ---- */
             #welText {
                 margin-left: 15vw;
             }
+
             @media screen and (max-width: 1350px) {
-                #links a {
-                    font-size: 25px;
-                }
-                #links {
-                    margin-bottom: 40px;
-                }
+                #links a {font-size: 25px}
+                #links {margin-bottom: 40px}
             }
 
         </style>
     </head>
     <body>
         <h1 id="welText">Links &<br> E-Mail</h1>
-        <h2>Kontakt</h2>
+
         <div class="dropdown">
             <div class="dropbtn"><i class="fa fa-bars" style="font-size: 25px; color: white"></i></div>
             <div class="dropdown-content">
@@ -75,12 +73,15 @@
                 <a href="http://max-rohrhirsch.github.io/projects">Projects</a>
             </div>
         </div>
+
+        <h2>Kontakt</h2>
         <p>
-            Eigentlich braucht man hier keinen Text. Unten sind Links zu meiner E-Mail, Instagram und Github.
+            Eigentlich braucht man hier keinen Text. Unten sind
             Ihr könnt entweder drauf drücken und werdet weiter geleitet.
             Oder ihr Hovert drüber, und bekommt meinen Namen Angezeigt.
             Markieren ist leider sehr schwer, da man dabei auch weiter geleitet wird.
         </p>
+
         <div id="links">
             <a href="https://www.instagram.com/maxrohrhirsch/" id="instagram"><span><i class="fa fa-instagram"></i> Instagram</span></a><br>
             <a href="https://github.com/Max-Rohrhirsch" id="github"><span><i class="fa fa-github"></i> Github</span></a><br>

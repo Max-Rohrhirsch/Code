@@ -55,12 +55,10 @@
 
             #imgR {
                 position: absolute;
-                /* display: block; */
                 width: 40vw;
                 height: 50vh;
                 border: 1px solid red;
-                right: 140px;
-                margin-left: 850px;
+                margin-left: 750px;
                 margin-top: -1000px;
             }
 
@@ -71,10 +69,8 @@
                 margin-top: -550px;
                 margin-bottom: 100px;
             }
-            .right h2 {
-                margin-left: 40px;
-            }
-            #rest h2 {
+
+            .right h2, #rest h2 {
                 margin-left: 40px;
             }
 
@@ -83,15 +79,15 @@
                 margin-bottom: 200px;
             }
 
-            #welText {
+            #weltext {
                 margin-left: 15vw;
                 margin-bottom: -100px;
             }
 
-/* ---------------------------------------------- */
+/* ---------------- Responsiveness ------------------ */
 
             @media screen and (max-width: 1200px) {
-                #welText {
+                #write {
                     font-size: 15vw;
                     max-width: 60vw;
                     margin-top: 45vh;
@@ -102,14 +98,13 @@
                     font-size: 5vw;
                     max-width: 70vw;
                 }
+
                 .right {
                     margin-left: 15vw;
                     margin-top: 70px;
                 }
 
-                .right h2, .right h3 {
-                    margin-left: 0;
-                }
+                .right h2, .right h3 {margin-left: 0}
 
                 #imgL {width: 70vw}
 
@@ -119,28 +114,28 @@
                 }
 
                 #imgR {
-                    position:relative;
+                    position: absolute;
                     display: block;
-                    margin-left: 37vw;
+                    margin-left: 0;
                     width: 70vw;
                     margin-top: 70px;
                 }
-                #imgL {
-                    margin-left: 15vw;
-                }
+
+                #imgL {margin-left: 15vw}
+
                 #rest h2 {
                     font-size: 25px;
-                    margin-left: 0px;
+                    margin-left: 0;
                     margin-top: 40px;
                 }
+
                 #rest h3 {
                     font-size: 20px;
-                    margin-left: 0px;
+                    margin-left: 0;
                     width: 75vw;
                 }
-                .level {
-                    margin-left: 0;
-                }
+
+                .level {margin-left: 0}
             }
 
         </style>
@@ -163,12 +158,14 @@
             Ich heiße Max Rohrhirsch bin 18 Jahre alt und wohne im Schwarzwald.
             Wie man unschwer erkennen kann, interesiere ich mich sehr für Informatik und bau im allgemeinen.
             Aktuell bin ich zwar noch Schüler, wurde aber schon auf ein Duales Studium
-            in angewanter Informationstechnick angenommen. Dazu verbringe ich meine Freizeit viel mit Pfadfindern und wandern.
+            in angewanter Informationstechnick angenommen. Zusätzlich verbringe ich meine Freizeit viel mit Pfadfindern und wandern.
         </p>
+
         <div id="skills">
             <img id="imgL">
             <div class="right">
                 <h2>Sprachen</h2>
+
                 <h3>Deutsch</h3>
                 <div id="deutsch" class="level"></div>
                 <h3>Englisch</h3>
@@ -179,6 +176,7 @@
                 <div id="spanisch" class="level"></div>
             </div>
         <div>
+
         <div id="rest">
             <h2> Betriebssysteme: </h2>
             <h3>Windows, Kali Linux, Arch Linux, Linux Mint</h3>
@@ -204,5 +202,6 @@
 
             <img id="imgR">
         </div>
+
     </body>
 </html>

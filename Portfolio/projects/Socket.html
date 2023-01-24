@@ -44,9 +44,10 @@
                 background-color: #222;
                 border-radius: 5px;
                 position: absolute;
+                display: block;
                 min-height: 70px;
                 max-width: 450px;
-                right: 450px;
+                margin-left: calc(40vw + 229px);
                 top: 320px;
             }
 
@@ -91,6 +92,12 @@
                 color: #f00;
             }
 
+            canvas {
+                position: absolute;
+                top: 0;
+                height: 150vh;
+            }
+
             /* Responsive */
             @media screen and (max-width: 1200px) {
                 img {
@@ -103,6 +110,8 @@
                     margin-top: 20px;
                     margin-left: 15vw;
                 }
+
+                .used {display: none}
             }
 
             .particle {
@@ -135,12 +144,15 @@
             		opacity: 0;
             	}
             }
+
         </style>
     </head>
     <body>
         <h1>Socket Server</h1>
-        <img>
 
+        <img>
+        <script src="https://max-rohrhirsch.github.io/confetti/confetti.js"></script>
+        <button class="but1">Zum Code</button>
         <div class="used">
             <div class="usedElement">HTML</div>
             <div class="usedElement">CSS</div>
@@ -148,8 +160,8 @@
             <div class="usedElement">Node.js</div>
             <div class="usedElement">Java</div>
         </div>
-        <button class="but1">Zum Code</button>
-        <button id='runaway-btn' class="trigger_fworks">Click Me</button>
+        <button id='runaway-btn' class="trigger_fworks" onclick="toggleConfetti();setTimeout(() => {toggleConfetti();}, 5000);">Click Me</button>
+
         <div class="dropdown">
             <div class="dropbtn"><i class="fa fa-bars" style="font-size: 25px; color: white"></i></div>
             <div class="dropdown-content">
@@ -159,14 +171,16 @@
                 <a href="http://max-rohrhirsch.github.io/projects">Projects</a>
             </div>
         </div>
+
         <h2> Wie funktioniert das Programm?</h2>
         <p>
             Das ist eine Art Whatsapp ersatz ohne Verschlüsselung und terminalbased.
             Es gibt befehle um den Namen zu ändern, eine Gruppe zu erstellen und beizutreten.
             Es werden aber keine Daten gespeichert. Und es funktioniert nur Text hin und her zu schicken.
         </p>
+
         <script type="text/javascript">
-            // Sehr gut, du hast dir die Mühe gemacht, denn Code anzuschauen.
+            // Sehr gut, du hast dir die Mühe gemacht, den Code anzuschauen.
             // Hier ist der Link zu einer "geheimen" Seite:
             // https://max-rohrhirsch.github.io/Secret_20839403
 
@@ -184,6 +198,6 @@
                 button.style.left = `${left - 250}px`;
             }
         </script>
-        <script src="/home/max/Schreibtisch/Code/Portfolio/firework.js"></script>
+        <script src="https://max-rohrhirsch.github.io/confetti/confetti.js"></script>
     </body>
 </html>
