@@ -14,6 +14,7 @@ The longest Tokens first and the shortest last
 #######################################
 # TOKENS
 #######################################
+
 Tokens = {
 
     # Triple Tokens
@@ -74,6 +75,36 @@ Tokens = {
 }
 
 
+# Special Tokens
+TAB				= 'TAB'
+F_STRING		= 'F_STRING'
+INT		    	= 'INT'
+FLOAT    	    = 'FLOAT'
+STRING		    = 'STRING'
+IDENTIFIER   	= 'IDENTIFIER'
+KEYWORD		    = 'KEYWORD'
+SLCOMMENT       = 'SLCOMMENT'
+MLCOMMENT       = 'MLCOMMENT'
+NEWLINE		    = 'NEWLINE'
+EOF				= 'EOF'
+
+
+# Starts with, ends with, Name of Token
+COMPLEX = [
+    # COMMENTS
+    ["#", "\n", SLCOMMENT],
+    ["'''", "'''", MLCOMMENT],
+    ['"""', '"""', MLCOMMENT],
+
+    # STRINGS
+    ['"', '"', STRING],
+    ["'", "'", STRING],
+    ['f"', '"', "F_STRING"],
+    ['r"', '"', "R_STRING"],
+]
+    
+
+# All Keywords
 KEYWORDS = [
   'FALSE',
   'TRUE',
@@ -109,13 +140,4 @@ KEYWORDS = [
   'WITH'
 ]
 
-TAB				= 'TAB'
-F_STRING		= 'F_STRING'
-INT		    	= 'INT'
-FLOAT    	    = 'FLOAT'
-STRING		    = 'STRING'
-IDENTIFIER   	= 'IDENTIFIER'
-KEYWORD		    = 'KEYWORD'
-COMMENT         = 'COMMENT'
-NEWLINE		    = 'NEWLINE'
-EOF				= 'EOF'
+

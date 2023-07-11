@@ -20,7 +20,6 @@ ast = parser.parse()			# 'ast' is a nested Array
 
 from users.Tokens import *
 from Lexer import *
-import math
 
 
 
@@ -57,7 +56,7 @@ class Parser:
 
 	def pre(self, step = 1):
 		self.tokIdx -= step
-		self.curTok = tokens[self.tokIdx] if self.tokIdx < len(self.tokens) else None
+		self.curTok = self.tokens[self.tokIdx] if self.tokIdx < len(self.tokens) else None
 
 	def check(self, step = 1):
 		Idx = self.tokIdx + step
@@ -111,9 +110,9 @@ class Parser:
 						break
 					elif isinstance(token, str):
 						if token == 'NUMBER':
-							res.append(make_check(i, ['INT', 'FLOAT'], [Tokens['+'], Tokens['*'], Tokens['-'], Tokens['**'], Tokens['/'], Tokens['%']]))
+							res.append(self.make_check(i, ['INT', 'FLOAT'], [Tokens['+'], Tokens['*'], Tokens['-'], Tokens['**'], Tokens['/'], Tokens['%']]))
 						elif token == 'STRING':
-							res.append(make_check(i, ['STRING'], [Tokens['+'], Tokens['*']]))
+							res.append(self.make_check(i, ['STRING'], [Tokens['+'], Tokens['*']]))
 						else:
 							res.append(getattr(self, f'make_{token.lower()}')(i))
 					else:
@@ -148,10 +147,10 @@ class Parser:
 					res.append(self.check(idx))
 					idx += 1
 				else:
-					raise CustomError(f'Expected: {valTokens}')
+					raise CustomError(f'Expected: make contition 1')
 			return res
 		else:
-			raise CustomError(f'Expected: {types}')
+			raise CustomError(f'Expected: make condition 2')
 
 	def make_check(self, i, types, valTokens):
 		idx = i
@@ -182,25 +181,24 @@ class Parser:
 		res = []
 		while self.check(idx) == Token('NEWLINE'):
 			idx += 1
-		while ifMatch(idx, "KEYWORD", "DEF"):
+		while self.ifMatch(idx, "KEYWORD", "DEF"):
 			if self.check(idx + 1) == Token('IDENTIFIER'):
 				res.append([self.check(idx + 1).value])
 			else:
 				CustomError(f'doesn`t matches the following')
 
-			ifMatch(idx + 2, Tokens["("])
+			self.ifMatch(idx + 2, Tokens["("])
 			res[-1].append(self.make_value(idx + 3))
-			ifMatch(idx + 4, Tokens[")"])
-			ifMatch(idx + 5, Tokens[":"])
+			self.ifMatch(idx + 4, Tokens[")"])
+			self.ifMatch(idx + 5, Tokens[":"])
 
 			res[-1].append(self.make_statements(idx + 6))
-
-
 
 
 #######################################
 # RUN
 #######################################
+
 if __name__ == '__main__':
 	# This is to test the script
 	lexer = Lexer('if a : for a IN 3:')

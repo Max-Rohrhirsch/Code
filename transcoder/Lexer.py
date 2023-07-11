@@ -14,8 +14,6 @@ tokens = lexer.makeTokens()     # "tokens" is an array with all tokens
 # IMPORTS
 #######################################
 
-import os
-import math
 from users.Tokens import *
 
 
@@ -43,6 +41,9 @@ class Token:
   def __repr__(self):
       if self.value: return f'{self.type}:{self.value}'
       return f'{self.type}'
+  
+class CustomError(Exception):
+    Exception
 
 
 #######################################
@@ -54,6 +55,7 @@ class Lexer:
         self.tokens = []
         self.index = -1
         self.text = text
+        self.tabCount = 0
         self.current_char = None
         self.advance()
 
@@ -72,38 +74,19 @@ class Lexer:
 ####################################
 
     def makeTokens(self):
+        if self.index == 0 and self.current_char != None:
+            self.make_Tab()
         while self.current_char != None:
-            if self.current_char in ' \t':              # Skip Whitespace
-                if self.check(-1) in " \n" or self.index == 1:
-                    self.advance()
-                    self.tokens.append(Token(TAB))
-                    while self.current_char != '\n':
-                        self.advance()
-                else:
-                    self.advance()
-            elif self.current_char == '#':              # Skip comment
+            if self.current_char in '\n':              # Skip Whitespace ---------------------------------------
+                self.make_Tab()
+            elif self.current_char in ';\n':            # New Line -------------------------
+                self.tokens.append(Token(NEWLINE))
                 self.advance()
-                while self.current_char != '\n':
-                    self.advance()
-            elif self.current_char == '\t':              # Tabs
-                self.tokens.append(Token(TAB))
-            elif self.current_char in ';\n':            # New Line
-                tokens.append(Token(NEWLINE))
-                self.advance()
-                count = 0
-                while self.current_char in ' \n':
-                    count += 1;
+                while self.current_char != None and self.current_char in ' \n':
                     self.advance()
                 self.tokens.append(Token(TAB))
             elif self.current_char in DIGITS:           # Numbers
                 self.tokens.append(self.make_number())
-            elif self.current_char == 'f':              # F_String
-                self.advance()
-                if self.current_char in ["'",'"','`']:
-                    self.tokens.append(self.make_string(self.current_char, fString = True))
-                else:
-                    self.pre()
-                    self.tokens.append(self.make_identifier())
             elif self.current_char in ["'",'"','`']:    # Normal String
                 self.tokens.append(self.make_string(self.current_char))
             elif self.current_char in LETTERS:          # Identifier
@@ -148,14 +131,14 @@ class Lexer:
     def make_string(self, escapeToken, fString = False):
         string = ''
         self.advance()
-        while self.current_char != None and (((self.current_char != escapeToken) and (self.check(-1) != '\\')) or (self.current_char != escape_character)):
+        while self.current_char != None and (((self.current_char != escapeToken) and (self.check(-1) != '\\')) or (self.current_char != escapeToken)):
             string += self.current_char
             self.advance()
             escape_character = False
         self.advance()
         if fString:
             return Token(F_STRING, string)
-        return Token(TT_STRING, string)
+        return Token(STRING, string)
 
     def make_identifier(self):
         id_str = ''
@@ -171,5 +154,5 @@ class Lexer:
 #######################################
 if __name__ == '__main__':
     # This is to test the script
-    lexer = Lexer("if (a != 8 + 5): pass")
+    lexer = Lexer(open("/home/max/Schreibtisch/Code-master/transcoder/test.txt", "r").read())
     print(lexer.makeTokens())

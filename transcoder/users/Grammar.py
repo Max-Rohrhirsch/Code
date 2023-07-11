@@ -5,7 +5,7 @@
 With syntax you can this language into psoidocode and than in an other language.
 Syntax is an Array with the first element beeing the ID and the rest the syntax.
 All Keywords and Tokens are automaticly transformed into Tokens. Special things like identifier,
-datatypes, value and more complex things aren´t Strings.
+datatypes, value and more complex things aren't Strings.
 
 EXAMPLE:
 ["FOR", IDENTIFIER, "IN", INT, ":"],

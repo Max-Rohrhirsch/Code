@@ -29,9 +29,9 @@ file.close()
 #######################################
 
 from users.Tokens import *
+from users.Grammar import *
 exec(open("transcoder/users/Grammar.py").read())
 from Lexer import *
-import math
 
 
 #######################################
