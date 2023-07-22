@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        <script type="text/javascript" src="script.js"></script>
+
+        <style>
+            /* -------------- GENERAL THINGS ----------------- */
+            body {
+                background-color: #334;
+                color: white;
+                width: 200px;
+            }
+
+            h2 {
+                text-align: center;
+                margin: auto;
+                margin-bottom: 7px;
+            }
+
+            /* -------------- ADD A NEW DATE ----------------- */
+
+            #add {
+                font-size: 20px;
+                margin: 10px;
+                display: block;
+            }
+
+            #add input {
+                right:20px;
+                margin-left: auto;
+            }
+
+            #add input[type=text] {
+               width: 25px;
+            }
+            #add button {
+                width: 100%;
+            }
+            button:hover {
+                cursor: pointer;
+            }
+            /* --------------IMPORT & EXPORT ----------------- */
+
+
+            /* ---------------- OLD LIST ALL --------------- */
+            #old {
+                overflow-y: scroll;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <h2>Colored Calender</h2>
+            <hr>
+
+
+            <div id="add">
+                <form id="form">
+                    Von: <input type="date" id="inp1"> <br>
+                    Bis: <input type="date" id="inp2"> <br>
+                    Color: <input type="text" maxlength="3"  id="inp3"> <br>
+                    <button  id="submit">+</button>
+                </form>
+            </div>
+            <hr>
+
+
+            <div id="export">
+                <button  id="export">Export</button>
+                <button  id="import">Import</button>
+                <input type="file" id="inp4">
+            </div>
+            <hr>
+
+
+            <div id="old">
+                <!-- ... -->
+            </div>
+        </div>
+    </body>
+</html>
