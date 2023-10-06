@@ -41,10 +41,6 @@ class Token:
   def __repr__(self):
       if self.value: return f'{self.type}:{self.value}'
       return f'{self.type}'
-  
-class CustomError(Exception):
-    Exception
-
 
 #######################################
 # LEXER
@@ -55,8 +51,11 @@ class Lexer:
         self.tokens = []
         self.index = -1
         self.text = text
-        self.tabCount = 0
         self.current_char = None
+
+        self.tabVal = complex(0, 0)
+        
+
         self.advance()
 
     def advance(self, step = 1):
@@ -70,21 +69,60 @@ class Lexer:
     def check(self, _idx):
         idx = self.index + _idx
         return self.text[idx] if idx >= 0 and idx < len(self.text) else None
+    
+    def make_Tab(self):
+        tab = 0
+        white = 0
+
+        self.tokens.append(NEWLINE)
+
+        while self.current_char in '\t #':
+            if self.current_char == ' ':
+                white += 1
+                self.advance()
+                continue
+                
+            if self.current_char == '\t':
+                tab += 1
+                self.advance()
+                continue
+                
+            if self.current_char == '#':
+                comment = ''
+                while self.current_char != '\n':
+                    comment += self.current_char
+                self.tokens.append(Token(SLCOMMENT, comment))
+                self.make_Tab()
+                return
+
+        # Error
+        if ((self.tabVal.real > tab) and ((self.tabVal.imag < white))):
+            raise Exception('Inconsistent use of Tabular')
+        
+        # Error
+        if ((self.tabVal.real < tab) and ((self.tabVal.imag > white))):
+            raise Exception('Inconsistent use of Tabular')
+        
+        # Inc
+        if ((self.tabVal.real <= tab) and (self.tabVal.imag <= white)):
+            self.tabVal = complex(tab, white)
+            return
+
+        # Dec
+        self.tokens.append(Token('END_TAB'))
+        self.tabVal = complex(tab, white)
+
 
 ####################################
 
     def makeTokens(self):
-        if self.index == 0 and self.current_char != None:
-            self.make_Tab()
         while self.current_char != None:
-            if self.current_char in '\n':              # Skip Whitespace ---------------------------------------
+            if self.current_char == '\n':               # Newline Tabular 
                 self.make_Tab()
-            elif self.current_char in ';\n':            # New Line -------------------------
-                self.tokens.append(Token(NEWLINE))
+            elif self.current_char == ' ':              # Skip Whitespace ---------------------------------------
                 self.advance()
-                while self.current_char != None and self.current_char in ' \n':
-                    self.advance()
-                self.tokens.append(Token(TAB))
+            elif self.current_char == ';':              # Newline Semicolon
+                self.tokens.append(Token(NEWLINE))
             elif self.current_char in DIGITS:           # Numbers
                 self.tokens.append(self.make_number())
             elif self.current_char in ["'",'"','`']:    # Normal String

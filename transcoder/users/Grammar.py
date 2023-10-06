@@ -24,8 +24,7 @@ EXAMPLE:
 #######################################
 
 syntax = [
-	["FOR", IDENTIFIER, "IN", INT, ":"],
-	["IF", IDENTIFIER, '==', INT]
+	
 ]
 
 trans = {
@@ -34,6 +33,6 @@ trans = {
 	"IF": 			[],
 	"ASSIGNTMENT": 	[],
 	"RETURN": 		[],
-	"FUNKTION": 	[],
+	"FUNCTION": 	[],
 	"CLASS": 		[]
 }
