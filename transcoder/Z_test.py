@@ -9,5 +9,7 @@ class S:
 		else:
 			raise Exception("nope")
 
-a = [R('sd'), 3, []]
-print(type(a))
+_char = " "
+while _char in '\t #':
+	if _char == ' ':
+		print("true")

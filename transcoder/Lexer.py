@@ -16,7 +16,6 @@ tokens = lexer.makeTokens()     # "tokens" is an array with all tokens
 
 from users.Tokens import *
 
-
 #######################################
 # CONSTANTS
 #######################################
@@ -29,18 +28,24 @@ LETTERS_DIGITS = LETTERS + DIGITS
 #######################################
 # TOKENS
 #######################################
+class Tab:
+    def __init__(self, tab, white):
+        self.tab = tab
+        self.white = white
+
 
 class Token:
-  def __init__(self, type_, value = None):
-      self.type = type_
-      self.value = value
+    def __init__(self, type_, value=None):
+        self.type = type_
+        self.value = value
 
-  def matches(self, type_, value = None):
-      return self.type == type_ and self.value == value
+    def matches(self, type_, value=None):
+        return self.type == type_ and self.value == value
 
-  def __repr__(self):
-      if self.value: return f'{self.type}:{self.value}'
-      return f'{self.type}'
+    def __repr__(self):
+        if self.value: return f'{self.type}:{self.value}'
+        return f'{self.type}'
+
 
 #######################################
 # LEXER
@@ -53,83 +58,85 @@ class Lexer:
         self.text = text
         self.current_char = None
 
-        self.tabVal = complex(0, 0)
-        
+        self.tabVal = Tab(0, 0)
 
         self.advance()
 
-    def advance(self, step = 1):
+    def advance(self, step=1):
         self.index += step
         self.current_char = self.text[self.index] if self.index < len(self.text) else None
 
-    def pre(self, step = 1):
-        self.index -= step
-        self.current_char = self.text[self.index] if self.index >= 0 else None
-
     def check(self, _idx):
         idx = self.index + _idx
-        return self.text[idx] if idx >= 0 and idx < len(self.text) else None
-    
+        return self.text[idx] if 0 <= idx < len(self.text) else None
+
     def make_Tab(self):
+        print("tab: ", self.current_char.isspace())
         tab = 0
         white = 0
+        self.advance()
 
         self.tokens.append(NEWLINE)
 
         while self.current_char in '\t #':
             if self.current_char == ' ':
+                print("white")
                 white += 1
                 self.advance()
-                continue
-                
-            if self.current_char == '\t':
+
+            elif self.current_char == '\t':
+                print("tab")
                 tab += 1
                 self.advance()
-                continue
-                
-            if self.current_char == '#':
+
+            elif self.current_char == '#':
                 comment = ''
+                print("#")
                 while self.current_char != '\n':
                     comment += self.current_char
+                    self.advance()
                 self.tokens.append(Token(SLCOMMENT, comment))
                 self.make_Tab()
+
                 return
+            else:
+                print("Else: ", self.current_char)
 
         # Error
-        if ((self.tabVal.real > tab) and ((self.tabVal.imag < white))):
+        if (self.tabVal.tab > tab) and (self.tabVal.white < white):
             raise Exception('Inconsistent use of Tabular')
-        
+
         # Error
-        if ((self.tabVal.real < tab) and ((self.tabVal.imag > white))):
+        if (self.tabVal.tab < tab) and (self.tabVal.white > white):
             raise Exception('Inconsistent use of Tabular')
-        
+
         # Inc
-        if ((self.tabVal.real <= tab) and (self.tabVal.imag <= white)):
-            self.tabVal = complex(tab, white)
+        if (self.tabVal.tab <= tab) and (self.tabVal.white <= white):
+            self.tabVal = Tab(tab, white)
             return
 
         # Dec
         self.tokens.append(Token('END_TAB'))
-        self.tabVal = complex(tab, white)
+        print(tab, " ", white)
+        self.tabVal = Tab(tab, white)
 
-
-####################################
+    ####################################
 
     def makeTokens(self):
         while self.current_char != None:
-            if self.current_char == '\n':               # Newline Tabular 
+            if self.current_char in '\n':  # Newline Tabular
                 self.make_Tab()
-            elif self.current_char == ' ':              # Skip Whitespace ---------------------------------------
+            elif self.current_char == ' ':  # Skip Whitespace ---------------------------------------
                 self.advance()
-            elif self.current_char == ';':              # Newline Semicolon
+            elif self.current_char == ';':  # Newline Semicolon
                 self.tokens.append(Token(NEWLINE))
-            elif self.current_char in DIGITS:           # Numbers
+            elif self.current_char in DIGITS:  # Numbers
                 self.tokens.append(self.make_number())
-            elif self.current_char in ["'",'"','`']:    # Normal String
+            elif self.current_char in ["'", '"', '`']:  # Normal String
                 self.tokens.append(self.make_string(self.current_char))
-            elif self.current_char in LETTERS:          # Identifier
+            elif self.current_char in LETTERS:  # Identifier
                 self.tokens.append(self.make_identifier())
-            else:                                       # Normal Tokens from Tokens dict
+            else:  # Normal Tokens from Tokens dict
                 res = ""
                 finished = False
                 for token in Tokens:
@@ -144,19 +151,18 @@ class Lexer:
                         finished = True
                         break
                 if not finished:
-                    print(f'Unknown token/ char at: {self.current_char}')      # Else Error
+                    print(f'Unknown token/ char at: {self.current_char}')  # Else Error
                     break
         return self.tokens
 
-
-#######################################
-# MAKE FUNCTIONS
-#######################################
+    #######################################
+    # MAKE FUNCTIONS
+    #######################################
 
     def make_number(self):
         num_str = ''
         dot_count = 0
-        while self.current_char != None and self.current_char in DIGITS + '.':
+        while self.current_char is not None and self.current_char in DIGITS + '.':
             if self.current_char == '.':
                 if dot_count == 1: break
                 dot_count += 1
@@ -166,10 +172,11 @@ class Lexer:
             return Token(INT, int(num_str))
         return Token(FLOAT, float(num_str))
 
-    def make_string(self, escapeToken, fString = False):
+    def make_string(self, escapeToken, fString=False):
         string = ''
         self.advance()
-        while self.current_char != None and (((self.current_char != escapeToken) and (self.check(-1) != '\\')) or (self.current_char != escapeToken)):
+        while self.current_char is not None and (((self.current_char != escapeToken) and (self.check(-1) != '\\')) or (
+                self.current_char != escapeToken)):
             string += self.current_char
             self.advance()
             escape_character = False
@@ -180,7 +187,7 @@ class Lexer:
 
     def make_identifier(self):
         id_str = ''
-        while self.current_char != None and self.current_char in LETTERS_DIGITS + '_':
+        while self.current_char is not None and self.current_char in LETTERS_DIGITS + '_':
             id_str += self.current_char
             self.advance()
         tok_type, str = [KEYWORD, id_str.upper()] if id_str.upper() in KEYWORDS else [IDENTIFIER, id_str]
@@ -192,5 +199,7 @@ class Lexer:
 #######################################
 if __name__ == '__main__':
     # This is to test the script
-    lexer = Lexer(open("/home/max/Schreibtisch/Code-master/transcoder/test.txt", "r").read())
+    txt = open("./test.txt", "r").read()
+    print(txt)
+    lexer = Lexer(open("./test.txt", "r").read())
     print(lexer.makeTokens())
