@@ -1,0 +1,13 @@
+# |I| Import
+# |V| Variablen declaration
+# |S| Code and Start
+# |   Every time/ on each element
+# |X| Special operation on ... something
+
+IF:
+    | 'if (' CONDITION ') {\n'
+    | '\t' CODE
+    | '}\n'
+
+CONDITION:
+    |
