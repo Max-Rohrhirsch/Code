@@ -1,0 +1,24 @@
+<head>
+    <title>My Website</title>
+    <favicon src="image.png">
+</head>
+<css>
+
+</css>
+<navbar>
+    <dropdown text="button" mode="hover">
+        <item>First Item</item>
+        <item>Second Item</item>
+    </dropdown>
+    <a src="...">Link</a>
+</navbar>
+
+<h1>Header</h1>
+<split parts="2">
+    <div id="mysplit1">1</div>
+    <split parts="2" format="vertical">
+        <div id="mysplit2">2</div>
+        <div id="mysplit3">3</div>
+    </split>
+</split>
+<p>This is a P Tag</p>

@@ -1,0 +1,7 @@
+<backend>
+    <port>3000</port>
+    <static>public/</static>
+
+    <get url="/" send="Hello World"></get>
+    <post url="/post">,console.log("hi")</post>
+</backend>
